@@ -324,7 +324,7 @@ hiddenSeq = [hiddenSeq[l] for l = 1:LENGTH_SEQ]
 tempDiff = reshape(mean(hiddenStatesMatrix, 1), 1, LENGTH_SEQ) - reshape(hiddenSeq, 1, LENGTH_SEQ)
 tempSq = tempDiff .^ 2
 MSE = (1 / LENGTH_SEQ) * sum(tempSq) 
-println(sqrt(MSE))
+#println(sqrt(MSE))
 return sqrt(MSE)
 # for l = 1:NUM_ITERATIONS
 # 	for k = 1:LENGTH_SEQ
