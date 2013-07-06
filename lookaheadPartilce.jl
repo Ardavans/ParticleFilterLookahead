@@ -24,7 +24,7 @@ else
 end
 
 myappend{T}(v::Vector{T}, x::T) = [v..., x]
-NUM_PARTICLES = 10
+NUM_PARTICLES = 50
 LENGTH_SEQ = 100
 OBS_VAR = 1
 TRANSITION_VAR = 10
@@ -42,7 +42,7 @@ NUM_BRANCHES, DEPTH = 2, 4
 ################ HELPER FUNCTIONS #################
 
 ################GENERATING DATA FUNCTIONS
-srand(2)
+#srand(2)
 for i = 1:NUM_SEQ
 	SequnceDict[i] = Dict()
 	hiddenDict[i] = Dict()
@@ -222,7 +222,7 @@ function resampleParticles(particlesDict)
 			newIndices[i] = findin(sample_arr, 1)[1]
 			particlesDict[i] = copy(particles_temporary[newIndices[i]])
 		end
-		println()
+		#println()
 	else
 		PROCS = 10
 		NUM_PARTICLES_BATCHES = [{"s" => int(NUM_PARTICLES/PROCS), "weightVect" => normalizeWeightVect}  for i = 1:PROCS]
