@@ -28,18 +28,18 @@ def run_on_instance(trial_id):
   import os
   os.environ['DISPLAY'] = ":1"
   print "Starting"
-  ls_output = subprocess.Popen(["/home/picloud/julia/julia", "lookaheadPartilce.jl", str(NUM_PARTICLES)], \
-                               cwd = "/home/picloud/ParticleFilterLookahead/",  \
+  ls_output = subprocess.Popen(["julia", "lookaheadPartilce.jl", str(NUM_PARTICLES)], \
+                               cwd = "/Users/ardavan/Desktop/Summer2013/lookaheadPartilceFilter/BanditMCMC/src/nonlinearGaussianSSM/",  \
                                stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
   out, err = ls_output.communicate()
   return out
  
-#result = run_on_instance([1])  
+result = run_on_instance([1])  
 
-jids = cloud.map(run_on_instance, range(TRIALS), _env=cloud_environment, _type='c2', _cores=1)
-print jids
-result = cloud.result(jids)
-pickle.dump(result, open("result_"+str(NUM_PARTICLES)+"particles_"+"path.pkl","wb"))
+# jids = cloud.map(run_on_instance, range(TRIALS), _env=cloud_environment, _type='c2', _cores=1)
+# print jids
+# result = cloud.result(jids)
+# pickle.dump(result, open("result_"+str(NUM_PARTICLES)+"particles_"+"path.pkl","wb"))
 print "RESULT:", result
 

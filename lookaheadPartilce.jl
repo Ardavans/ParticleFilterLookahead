@@ -24,7 +24,7 @@ else
 end
 
 myappend{T}(v::Vector{T}, x::T) = [v..., x]
-NUM_PARTICLES = 50
+# NUM_PARTICLES = 50
 LENGTH_SEQ = 100
 OBS_VAR = 1
 TRANSITION_VAR = 10
